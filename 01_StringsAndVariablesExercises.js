@@ -174,8 +174,11 @@ for (let v= 0; v<word.length; v++) {
     }
 } 
 
+//function I am learing from freecodecamp maybe I will use to them to make some of the exercises later
 //a way to check the type of variable
-typeof vowelSum;
+console.log("The type of word variable:",typeof word);
+let letter = "a";
+console.log("The position of letter", letter, "in the word", word, "is", word.indexOf(letter)+1); //this is to check if a letter is in the word and in which position
 
 //a way to add a new property to an object
 let kot = {
@@ -184,6 +187,108 @@ let kot = {
     color: "grey",
     speak()
     {
-        console.log("Hi there!");
+        console.log("Hi there!"); //gotta work on that i dont get it 
     }
 };
+
+//function I am learing from freecodecamp maybe I will use to them to make some of the exercises later
+let char = String.fromCharCode(65);
+console.log(char);
+char = String.fromCharCode(97);
+console.log(char);
+letter = "A";
+console.log(letter.charCodeAt(0));
+let symbol = "!";
+console.log(symbol.charCodeAt(0));
+
+let message = "JavaScript is fun!";
+let lastWord = message.slice(-4);
+
+console.log(lastWord);  // fun!
+
+message = "Hello, world!";
+greeting = message.slice(0, 5);
+
+console.log(greeting);  // Hello
+
+greeting = "Hello, World!";
+let uppercaseGreeting = greeting.toUpperCase();
+console.log(uppercaseGreeting);  // "HELLO, WORLD!"
+
+let shout = "I AM LEARNING JAVASCRIPT!";
+let lowercaseShout = shout.toLowerCase();
+console.log(lowercaseShout);  // "i am learning javascript!"
+
+greeting = "   Hello!   ";
+console.log(greeting);
+let trimmedEnd = greeting.trimEnd();
+console.log(trimmedEnd);  // "   Hello!"
+
+greeting = "   Hello!   ";
+console.log(greeting);
+let trimmedStart = greeting.trimStart();
+console.log(trimmedStart);  // "Hello!   "
+
+message = "   Hello!   ";
+console.log(message); // "   Hello!   "
+let trimmedMessage = message.trim();
+console.log(trimmedMessage);  // "Hello!"
+
+const userInput = "   Hello World!   ";
+console.log("Original input:");
+console.log(userInput);
+
+const cleanedInput = userInput.trim();
+console.log("Result of trimming whitespace from both ends:");
+console.log(cleanedInput);
+
+trimmedStart = userInput.trimStart();
+console.log("After using the trimStart() method, leading spaces removed:");
+console.log(trimmedStart);
+
+trimmedEnd = userInput.trimEnd();
+console.log("After using the trimEnd() method, trailing spaces removed:");
+console.log(trimmedEnd);
+
+const upperCaseInput = cleanedInput.toUpperCase();
+console.log("Result of using the toUpperCase() method:");
+console.log(upperCaseInput);
+
+const lowerCaseInput = cleanedInput.toLowerCase();
+console.log("Result of using the toLowerCase() method:");
+console.log(lowerCaseInput);
+
+const lowercaseWord = "camelcase";
+const camelCasedVersion = lowercaseWord.slice(0, 5) + lowercaseWord[5].toUpperCase() + lowercaseWord.slice(-3);
+console.log("Camel cased version:");
+console.log(camelCasedVersion);
+
+//String modifications methods?/String transformer
+const originalString = "I love cats.";
+console.log("Original string:");
+console.log(originalString);
+
+const replacedString = originalString.replace("cats", "dogs");
+console.log("After using the replace() method:");
+console.log(replacedString);
+
+const exampleSentence = "I love cats and cats are so much fun!";
+console.log("Original sentence:");
+console.log(exampleSentence);
+
+const dogsOnlySentence = exampleSentence.replaceAll("cats", "dogs");
+console.log("Replacing all occurrences of cats with dogs:");
+console.log(dogsOnlySentence);
+
+const learningSentence = "I love learning!";
+console.log("Original learning sentence:");
+console.log(learningSentence);
+
+const repeatedLove = "love ".repeat(3).trimEnd();
+console.log(repeatedLove);
+
+const newSentence = `I ${repeatedLove} learning.`;
+console.log(newSentence);
+
+console.log("I am trying to learn how to type all types of special character with website called keybr.com because \nI had huge issues with that and I want to be able to type all of them without lookinng at keyboard");
+//const answer = window.prompt("What's your favorite animal?");
