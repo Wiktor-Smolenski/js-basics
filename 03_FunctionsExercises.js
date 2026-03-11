@@ -117,3 +117,54 @@ console.log(noLoanMsg);
 const convertCtoF = (tempC) => (tempC*9/5) + 32;
 console.log(convertCtoF(0));
 
+//card counter
+let count = 0;
+function cardCounter(card) {
+    if (card >= 2 && card <= 6) {
+    count++;
+  }else if (card === 10 || card === "J" || card === "Q" || card === "K" || card === "A") {
+    count--;
+  } if (count > 0) {
+    return count + " Bet";
+  } else {
+    return count + " Hold";
+  }
+}
+cardCounter(4);
+console.log(cardCounter(2));
+
+//leap year checker
+let year = 2000;
+function isLeapYear(year) {
+  if (year%400 === 0 || (year%100 !== 0 && year%4 === 0)) {
+   return year + " is a leap year.";
+} else {
+   return year + " is not a leap year.";
+}
+}
+let result = isLeapYear(year);
+console.log(result);
+
+//string manipulator
+function truncateString(string, number) {
+  if (string.length <= number) {
+    return string;
+  } else {
+    return string.slice(0, number) + "...";
+  }
+}
+console.log(truncateString("Wiktor", 6));
+
+//end of sequence checker
+function confirmEnding(string1, string2) {
+  let a = string1.length;
+  let b = string2.length;
+  if ((string1.slice(a-b, a)) == (string2)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(confirmEnding("Bastian", "n"));
+
+//overall very cool stuff with those functions I liked it Picasso!
