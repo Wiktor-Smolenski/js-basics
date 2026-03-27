@@ -205,3 +205,77 @@ function factorialCalculator(number) {
 let factorial = factorialCalculator(num);
 let resultMsg = "Factorial of " + num + " is " + factorial;
 console.log(resultMsg);
+
+//mutation checker
+function mutation(arr) {
+let a = arr[0].toLowerCase();
+let b = arr[1].toLowerCase();
+let testArr = [];
+for (let i = 0; i < b.length; i++) {
+  if (a.includes(b[i])) {
+    testArr.push("true");
+  } else
+  testArr.push("false");
+}
+if (testArr.includes("false")) {
+  return false;
+} else
+return true;
+}
+console.log(mutation(["hello", "Hello"]))
+
+//person detail checker 
+let contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile (name, property) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName == name && contacts[i][property] != undefined) {
+      return contacts[i][property];
+    } else if (contacts[i].firstName == name && contacts[i][property] == undefined) {
+      return "No such property";
+    }
+  }
+  return "No such contact";
+}
+
+console.log(lookUpProfile("Kristian", "lastName"));
+console.log(lookUpProfile("Bob", "number"));
+console.log(lookUpProfile("Akira", "address"));
+
+//repeat function without repeat()
+function repeatStringNumTimes (string, number) {
+
+  let phrase = "";
+
+  if (number <= 0) return "";
+  for (let i = 0; i < number; i++) {
+    phrase += string;
+    }
+    return phrase;
+}
+console.log(repeatStringNumTimes("*", 3));

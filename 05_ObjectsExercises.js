@@ -166,3 +166,70 @@ console.log(updateRecords(recordCollection, 1245, "tracks", "Addicted to Love"))
 console.log(updateRecords(recordCollection, 2468, "tracks", "Free"));
 console.log(updateRecords(recordCollection, 2548, "tracks", ""));
 console.log(updateRecords(recordCollection, 1245, "albumTitle", "Riptide"));
+
+//shipping manifest with objects
+function normalizeUnits(manifest) {
+  let copy = {... manifest};
+  if (copy.unit == "lb") {
+    copy.weight = (copy.weight) * 0.45;
+    copy.unit = "kg";
+  }
+  return copy;
+}
+
+let test = { containerId: 1, destination: "hej", weight: 101, unit: "kg", hazmat: false };
+
+function validateManifest(manifest) {
+
+  let errors = {};
+
+  if (manifest.containerId == undefined) {
+    errors.containerId = "Missing";
+  } else if (manifest.containerId > 0 && typeof manifest.containerId == "number" && Number.isInteger(manifest.containerId) == true) {
+  } else 
+  errors.containerId = "Invalid";
+
+  if (manifest.destination == undefined) {
+    errors.destination = "Missing";
+  } else if (typeof manifest.destination == "string") {
+    if (manifest.destination.trim() == "") {
+      errors.destination = "Invalid";
+    }
+  } else
+  errors.destination = "Invalid";
+
+  if (manifest.weight == undefined) {
+    errors.weight = "Missing";
+  } else if (Number.isNaN(manifest.weight)) {
+    errors.weight = "Invalid"
+  } else if (manifest.weight >= 0 && typeof manifest.weight == "number") {
+  } else
+  errors.weight = "Invalid";
+
+  if (manifest.unit == undefined) {
+    errors.unit = "Missing";
+  } else if (manifest.unit == "kg" || manifest.unit == "lb") {
+  } else
+  errors.unit = "Invalid";
+
+  if (manifest.hazmat == undefined) {
+    errors.hazmat = "Missing";
+  } else if (manifest.hazmat == true || manifest.hazmat == false) {
+  } else
+  errors.hazmat = "Invalid";
+
+  return errors;
+}
+
+function processManifest(manifest) {
+  if(validateManifest(manifest).containerId == undefined) {
+    console.log("Validation success: " + manifest.containerId);
+    console.log("Total weight: " + normalizeUnits(manifest).weight + " kg");
+  } else {
+  console.log("Validation error: " + manifest.containerId);
+  console.log(validateManifest(manifest));
+  }
+}
+
+console.log(validateManifest(test));
+console.log(test);
