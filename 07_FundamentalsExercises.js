@@ -254,3 +254,59 @@ function pairElement (string) {
 }
 
 console.log(pairElement("AAAA"));
+
+//HTML entity converter
+function convertHTML (string) {
+  const data = {"&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "\'": "&apos;"};
+  let result = "";
+  for (const letter of string) {
+    if (data[letter] != undefined) {
+      result += data[letter];
+    } else
+    result += letter;
+  }
+  return result;
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
+
+//fibonacci sum of odd numbers till the number provided 
+function sumFibs (number) {
+
+  let a = 0;
+  let b = 1;
+  let c = 1;
+  let sum = 0;
+
+  for (let i = 1; a <= number; i++) {
+
+    if (a % 2 != 0) {
+      sum += a;
+    }
+    a = b;
+    b = c;
+    c = a + b;
+
+    if (a > number) {
+    console.log("yes");
+    }
+  }
+  return sum;
+}
+
+console.log(sumFibs(75025));
+
+//element skipper
+function dropElements(arr, func) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (func(arr[i]) == true) {
+      for (let j = i; j < arr.length; j++) {
+      result.push(arr[j]);
+      }
+      return result;
+    }
+  }
+  return result;
+}
+console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
