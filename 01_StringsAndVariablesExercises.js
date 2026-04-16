@@ -5,8 +5,8 @@ console.log("This is the first exercise with variables and basic operations");
 let a = 10;
 let b = 10;
 
-console.log("a=", a);
-console.log("b=", b);
+console.log("a =", a);
+console.log("b =", b);
 console.log("(a + b) =", a + b);
 console.log("(a - b) =", a - b);
 console.log("(a * b) =", a * b);
