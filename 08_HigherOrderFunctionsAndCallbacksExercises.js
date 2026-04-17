@@ -153,3 +153,29 @@ return index === -1 ? sorted.length : index;
 }
 
 console.log(getIndexToIns([], 19));
+
+// array difference
+function diffArray(arr1, arr2) {
+  return [
+    ...arr1.filter(item => !arr2.includes(item)),
+    ...arr2.filter(item => !arr1.includes(item))
+  ];
+}
+
+console.log(diffArray(["pen", "book"], ["book", "pencil", "notebook"]));
+
+//destroyer function
+function destroyer (arr, ...args) {
+  return arr.filter(word => !args.includes(word));
+}
+console.log(destroyer(["tree", "hamburger", 53], "tree", 53));
+
+//matching objects filter
+function whatIsInAName(arr, obj) {
+
+  return arr.filter(object =>
+    Object.keys(obj).every(key => object[key] === obj[key]));
+
+}
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat": 2 }], { "apple": 1, "bat": 2 })) //6
