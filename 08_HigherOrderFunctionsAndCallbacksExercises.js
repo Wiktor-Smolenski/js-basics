@@ -179,3 +179,95 @@ function whatIsInAName(arr, obj) {
 }
 
 console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat": 2 }], { "apple": 1, "bat": 2 })) //6
+
+//sum of all primes till the number
+function sumPrimes (n) {
+  let numbers = [];
+  for (let i = 0; i <= n; i++) {
+    if (isPrime(i)) {
+      numbers.push(i);
+    }
+  }
+  return numbers.reduce((a, b) => a + b, 0);
+}
+
+function isPrime(k) {
+  if (k < 2) return false;
+  for (let i = 2; i < k; i++) {
+    if (k % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(sumPrimes(10))
+
+//greates common divisor took it from web wanted to try it out
+function gcd(a, b) {
+  while (b !== 0) {
+    console.log("a:", a, "b:", b);
+    [a, b] = [b, a % b];
+  }
+  return a;
+}
+
+console.log(gcd(25 ,125))
+
+//smallest common multiple there is a way to use gcd function in it but this is my code for it I know it is brute force but it is mine maybe will change it future
+function smallestCommons (arr) {
+  let numbers = [];
+  arr.sort((a, b) => a - b);
+
+  for (let i = arr[0]; i <= arr[1]; i++) {
+    numbers.push(i);
+  }
+
+  let biggest = numbers.reduce((a, b) => a * b);
+
+  for (let i = 2; i < biggest; i++) {
+    if (numbers.every(num => i % num == 0)) {
+      return i;
+    }
+  }
+
+  return biggest;
+}
+
+console.log(smallestCommons([1, 5]));
+
+//array flattening
+function steamrollArray(arr) {
+  const result = [];
+
+  function flatIt (a) {
+    for (let b of a) {
+      if (Array.isArray(b)) {
+        flatIt(b);
+      } else {
+        result.push(b);
+      }
+    }
+  }
+
+  flatIt(arr);
+  return result;
+}
+console.log(steamrollArray([1, [2], [3, [[4]]]]));
+
+//is information valid in array with objects
+function truthCheck(collection, pre) {
+  pre = collection.every(a => isValid(a[pre]) == true)
+  return pre;
+}
+
+function isValid (a) { 
+  if (a == "" && Array.isArray(a) == false || a == undefined) {
+    return false;
+  }
+  if (typeof a == "number" && a % 1 != 0) {
+    return false;
+  }
+  return true;
+}
+
+console.log(truthCheck([{name: "freeCodeCamp", users: [{name: "Quincy"}, {name: "Naomi"}]}, {name: "Code Radio", users: [{name: "Camperbot"}]}, {name: "", users: []}], "users"));
