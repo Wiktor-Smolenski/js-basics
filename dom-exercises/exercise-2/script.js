@@ -2,8 +2,6 @@ const characters = document.getElementById("text-input");
 
 const print = document.getElementById("char-count");
 
-
-
 characters.addEventListener("input", insertLength);
 
 function insertLength() {
