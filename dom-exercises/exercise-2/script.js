@@ -14,3 +14,5 @@ function insertLength() {
   print.textContent = `Character Count: ${len}/50`;
   print.classList.toggle("over-limit", len >= 50);
 }
+
+console.log("yes");
